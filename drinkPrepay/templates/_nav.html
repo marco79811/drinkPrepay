@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-info bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Away Cafe</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'cafe:coffee_list' %}">我的寄杯</a>
+        </li>
+        <li class="nav-item">
+          
+          {% if request.user.is_authenticated %}
+            <a class="nav-link" href="{% url 'customers:profile' %}">個人檔案編輯</a>
+          {% endif %}
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          {% if request.user.is_authenticated %}
+            <a class="nav-link" href="{% url 'customers:logout' %}">登出({{ request.customers.username }})</a>
+          {% else %}
+            <a class="nav-link" href="{% url 'customers:login' %}">登入</a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

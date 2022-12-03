@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block subtitle %}Profile{% endblock  %}
+
+{% block content %}
+<div class="row">
+<div class="col">
+<h1>Profile </h1>
+<hr>
+
+            {% include "_form.html" with form=form %}
+</div>
+</div>
+
+
+{% endblock content %}
+

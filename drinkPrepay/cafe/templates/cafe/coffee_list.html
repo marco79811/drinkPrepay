@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}飲料清單{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for Coffee in cafe %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{ Coffee.name }}
+                    </div>
+                    <div class="card-body">
+                        
+                        <p class="card-text">
+                            剩餘杯數{{ Coffee.count }}
+                        </p>
+                        <a href="#" class="btn btn-primary btn-sm">兌換</a>    
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
